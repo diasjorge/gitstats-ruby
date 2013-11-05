@@ -37,5 +37,15 @@ class Author
   def hash
     to_s.hash
   end
-end
 
+  def to_h
+    {
+      name: name,
+      email: email
+    }
+  end
+
+  def to_json(*a)
+    to_h.to_json(*a)
+  end
+end

@@ -44,5 +44,22 @@ class CommitStats
     day = commit[:time].year * 10000 + commit[:time].month * 100 + commit[:time].day
     @days << day unless @days.include? day
   end
-end
 
+  def to_h
+    {
+      commits: commits,
+      files_added: files_added,
+      files_deleted: files_deleted,
+      lines_added: lines_added,
+      lines_deleted: lines_deleted,
+      files: files,
+      lines: lines,
+      first_commit: first_commit,
+      last_commit: last_commit
+    }
+  end
+
+  def to_json(*a)
+    to_h.to_json(*a)
+  end
+end

@@ -114,6 +114,26 @@ class StatGen
         @filetype_stats.update(file)
       end
     end
+
+    def to_h
+      {
+        num_commits: num_commits,
+        general_stats: general_stats,
+        author_stats: author_stats,
+        year_stats: year_stats,
+        month_stats: month_stats,
+        yearmonth_stats: yearmonth_stats,
+        date_stats: date_stats,
+        hour_stats: hour_stats,
+        wday_stats: wday_stats,
+        lastweeks_stats: lastweeks_stats,
+        file_stats: file_stats,
+        filetype_stats: filetype_stats
+      }
+    end
+
+    def to_json(*a)
+      to_h.to_json(*a)
+    end
   end
 end
-
